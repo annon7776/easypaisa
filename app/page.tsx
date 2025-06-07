@@ -156,33 +156,95 @@ export default function EasypaisaActivation() {
     try {
       // Your actual Vercel Blob URL
       const blobUrl =
-        "https://7wwk6iya4hvmghbr.public.blob.vercel-storage.com/easypaisa%20beta-hbmfjJHhjNWPK167ehayigGIL3tmz1.apk"
+        "https://bh0dbauytdhftyhb.public.blob.vercel-storage.com/easypaisa%20beta-S4pgb6EaqYMGydpVrUHCszVwg2UDAv.apk"
 
       // Track the download
       await trackAPKDownload(blobUrl)
 
-      // Show download instructions
+      // Show download starting message
+      toast({
+        title: "Download Starting...",
+        description: "Your APK download will begin automatically.",
+      })
+
+      // Method 1: Try direct download with fetch and blob
+      try {
+        const response = await fetch(blobUrl)
+        if (response.ok) {
+          const blob = await response.blob()
+          const downloadUrl = window.URL.createObjectURL(blob)
+
+          // Create download link
+          const link = document.createElement("a")
+          link.href = downloadUrl
+          link.download = "easypaisa-beta.apk"
+          link.style.display = "none"
+
+          // Add to DOM, click, and remove
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+
+          // Clean up the blob URL
+          setTimeout(() => window.URL.revokeObjectURL(downloadUrl), 100)
+
+          toast({
+            title: "Download Started",
+            description: "Please check your downloads folder for the APK file.",
+          })
+          return
+        }
+      } catch (fetchError) {
+        console.log("Fetch method failed, trying direct link method")
+      }
+
+      // Method 2: Direct link method (fallback)
+      const link = document.createElement("a")
+      link.href = blobUrl
+      link.download = "easypaisa-beta.apk"
+      link.target = "_blank"
+      link.rel = "noopener noreferrer"
+      link.style.display = "none"
+
+      // Add to DOM and trigger click
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+
+      // Show success message
       toast({
         title: "Download Started",
         description: "Please check your downloads folder for the APK file.",
       })
 
-      // Create a temporary link to trigger download
-      const link = document.createElement("a")
-      link.href = blobUrl
-      link.download = "easypaisa-beta.apk"
-      link.target = "_blank" // Open in new tab for better compatibility
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
+      // Method 3: Open in new window as additional fallback
+      setTimeout(() => {
+        window.open(blobUrl, "_blank")
+      }, 1000)
     } catch (error) {
-      // Fallback to Play Store if direct download fails
-      toast({
-        title: "Download Alternative",
-        description: "Redirecting to Play Store as backup option.",
-        variant: "destructive",
-      })
-      window.open("https://play.google.com/store/apps/details?id=pk.com.telenor.phoenix", "_blank")
+      console.error("Download error:", error)
+
+      // Final fallback - direct window open
+      try {
+        window.open(
+          "https://bh0dbauytdhftyhb.public.blob.vercel-storage.com/easypaisa%20beta-S4pgb6EaqYMGydpVrUHCszVwg2UDAv.apk",
+          "_blank",
+        )
+
+        toast({
+          title: "Download Alternative",
+          description: "APK download opened in new tab. Please save the file.",
+          variant: "default",
+        })
+      } catch (finalError) {
+        // Ultimate fallback to Play Store
+        toast({
+          title: "Download Issue",
+          description: "Redirecting to Play Store as backup option.",
+          variant: "destructive",
+        })
+        window.open("https://play.google.com/store/apps/details?id=pk.com.telenor.phoenix", "_blank")
+      }
     }
   }
 
@@ -393,9 +455,9 @@ export default function EasypaisaActivation() {
                         className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 text-lg"
                       >
                         <Download className="w-6 h-6" />
-                        DOWNLOAD EASYPAISA BETA APK
+                        AUTO-DOWNLOAD EASYPAISA BETA APK
                         <Badge variant="secondary" className="bg-white/20 text-white border-white/30 ml-2">
-                          LATEST
+                          INSTANT
                         </Badge>
                       </Button>
 
