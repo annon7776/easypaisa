@@ -64,19 +64,19 @@ export function LiveChat() {
 
   if (!isOpen) {
     return (
-      <div className="fixed bottom-6 left-6 z-50">
+      <div className="fixed bottom-6 left-4 sm:left-6 z-50">
         <Button
           onClick={() => setIsOpen(true)}
-          className="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
+          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
         >
-          <MessageCircle className="h-6 w-6 text-white" />
+          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
         </Button>
       </div>
     )
   }
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 w-80">
+    <div className="fixed bottom-6 left-4 sm:left-6 z-50 w-[calc(100%-2rem)] sm:w-80 max-w-[320px]">
       <Card className="shadow-xl border-0">
         <CardHeader className="bg-blue-600 text-white rounded-t-lg">
           <div className="flex items-center justify-between">
@@ -133,16 +133,16 @@ export function LiveChat() {
             )}
             <div ref={messagesEndRef} />
           </div>
-          <div className="p-4 border-t">
+          <div className="p-3 sm:p-4 border-t">
             <div className="flex gap-2">
               <Input
                 placeholder="Type your message..."
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && sendMessage()}
-                className="flex-1"
+                className="flex-1 h-10"
               />
-              <Button onClick={sendMessage} size="sm" className="bg-blue-600 hover:bg-blue-700">
+              <Button onClick={sendMessage} size="sm" className="bg-blue-600 hover:bg-blue-700 h-10 w-10">
                 <Send className="h-4 w-4" />
               </Button>
             </div>

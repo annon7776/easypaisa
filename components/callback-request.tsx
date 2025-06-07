@@ -145,7 +145,7 @@ export function CallbackRequest({ onBack, onClose }: CallbackRequestProps) {
               placeholder="Enter your full name"
               value={formData.name}
               onChange={(e) => handleInputChange("name", e.target.value)}
-              className="h-10"
+              className="h-12"
             />
           </div>
 
@@ -181,7 +181,7 @@ export function CallbackRequest({ onBack, onClose }: CallbackRequestProps) {
               Preferred Callback Time *
             </Label>
             <Select value={formData.preferredTime} onValueChange={(value) => handleInputChange("preferredTime", value)}>
-              <SelectTrigger className="h-10">
+              <SelectTrigger className="h-12">
                 <SelectValue placeholder="Select preferred time" />
               </SelectTrigger>
               <SelectContent>
@@ -284,7 +284,7 @@ export function CallbackRequest({ onBack, onClose }: CallbackRequestProps) {
         <Separator />
 
         <div className="flex gap-3">
-          <Button variant="outline" onClick={onBack} className="flex-1">
+          <Button variant="outline" onClick={onBack} className="flex-1 h-12">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
           </Button>
@@ -298,7 +298,7 @@ export function CallbackRequest({ onBack, onClose }: CallbackRequestProps) {
               !formData.issue ||
               loading
             }
-            className="flex-1 bg-emerald-600 hover:bg-emerald-700"
+            className="flex-1 h-12 bg-emerald-600 hover:bg-emerald-700"
           >
             {loading ? (
               <>

